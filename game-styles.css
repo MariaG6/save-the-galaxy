@@ -1,0 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Roboto:wght@100&display=swap');
+
+* {
+    font-family: 'Crimson Text', serif;
+    border:none;
+    color:yellow;
+}
+
+body {
+    background-image: url(/images/background.jpg);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title {
+    font-size: 60px;
+    font-weight: bolder;
+    width: 70vh;
+    padding: 5px;
+    margin: 50px;
+    text-align: center;
+    border: yellow solid 5px;
+    border-radius:1cm;
+}
+
+#title:hover, .main-intro:hover {
+    color:red;
+}
+#title:hover {
+    border: red 10px double;
+}
+#position-title {
+    width: 60px;
+    height: 60px;
+    margin-left: 30%;
+}
+
+#canvas{
+    border: 10px aqua solid;
+}

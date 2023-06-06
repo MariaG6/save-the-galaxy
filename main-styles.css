@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Roboto:wght@100&display=swap');
+
+* {
+    font-family: 'Crimson Text', serif;
+    border:none;
+    color:yellow;
+}
+
+body {
+    background-image: url(/images/stars-background.jpg);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title {
+    font-size: 100px;
+    font-weight: bolder;
+    width: 70vh;
+    padding: 5px;
+    margin: 50px;
+    text-align: center;
+    border: yellow solid 5px;
+    border-radius:1cm;
+}
+
+#title:hover, .main-intro:hover {
+    color:red;
+}
+#title:hover {
+    border: red 10px double;
+}
+
+#position-title {
+    width: 100px;
+    height: 100px;
+    margin-left: 30%;
+}
+
+#nav-menu{  
+    list-style:none;
+    float: right;
+    margin-top: -80px;
+    margin-right: 20px;
+}
+
+#nav-menu ul {
+    list-style:none;
+    width: max-content;
+    display: flex;
+    margin-left: 10px;
+}
+
+#nav-menu a{
+    text-decoration: none;
+    font-size: 15px;
+    padding: 20px;
+}
+
+.main-intro {
+    margin: 300px 30%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    flex-direction: column;
+}
+
+#intro-btn {
+    border: black solid 5px;
+    background-color: red;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#intro-btn:hover {
+    background-color: blue;
+    color: white;
+  }
