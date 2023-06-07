@@ -40,3 +40,20 @@ body {
 #canvas{
     border: 10px aqua solid;
 }
+
+
+#start-btn {
+    border: black solid 5px;
+    background-color: red;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#start-btn:hover {
+    background-color: blue;
+    color: white;
+  }
