@@ -4,7 +4,7 @@
 * {
     font-family: 'Crimson Text', serif;
     border:none;
-    color:yellow;
+    color:gold;
 }
 
 body {
@@ -21,7 +21,7 @@ body {
     padding: 5px;
     margin: 50px;
     text-align: center;
-    border: yellow solid 5px;
+    border: gold solid 5px;
     border-radius:1cm;
 }
 
@@ -60,11 +60,15 @@ body {
 
 .main-intro {
     margin: 300px 30%;
-    font-size: 18px;
+    font-size: 35px;
     display: flex;
     justify-content: center;
     text-align: justify;
     flex-direction: column;
+}
+#intro-title {
+    display: flex;
+    justify-content: center;
 }
 
 #intro-btn {
@@ -74,11 +78,16 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
-    margin: 4px 2px;
+    font-size: 60px;
+    margin: 50px 2px;
     cursor: pointer;
 }
 #intro-btn:hover {
     background-color: blue;
     color: white;
   }
+
+#btn-box {
+    display: flex;
+    justify-content: center
+}

@@ -4,7 +4,7 @@
 * {
     font-family: 'Crimson Text', serif;
     border:none;
-    color:yellow;
+    color:gold;
 }
 
 body {
@@ -15,13 +15,13 @@ body {
 }
 
 #title {
-    font-size: 60px;
+    font-size: 80px;
     font-weight: bolder;
     width: 70vh;
     padding: 5px;
     margin: 50px;
     text-align: center;
-    border: yellow solid 5px;
+    border: gold solid 5px;
     border-radius:1cm;
 }
 
@@ -37,10 +37,42 @@ body {
     margin-left: 30%;
 }
 
-#canvas{
-    border: 10px aqua solid;
+#second-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    font-size: 40px;
 }
 
+#game-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+#instr-box{
+    font-size: 20px;
+    justify-content: center;
+}
+
+#instr-box ul {
+    list-style: none;
+    line-height: 80px;
+}
+
+#arrow-img{
+    width: 100px;
+    height: 100px;
+}
+
+#canvas{
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+#canvas-box {
+    display: flex;
+    justify-content: center;
+}
 
 #start-btn {
     border: black solid 5px;
@@ -49,11 +81,17 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
+    font-size: 30px;
     margin: 4px 2px;
     cursor: pointer;
 }
+
 #start-btn:hover {
     background-color: blue;
     color: white;
   }
+
+#btn-container {
+    display: flex;
+    justify-content: center;
+}
