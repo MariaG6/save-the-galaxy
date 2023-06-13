@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(/images/stars-background.jpg);
+    background-image: url(./images/stars-background.jpg);
     background-color: black;
     background-repeat: no-repeat;
     background-size: cover;

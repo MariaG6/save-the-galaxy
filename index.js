@@ -5,11 +5,11 @@ const ctx = canvas.getContext("2d");
 // Set a background
 document.getElementById("start-btn").onclick = () => startGame();
 const battleBackground = new Image();
-battleBackground.src = "/images/battle-background.jpg";
+battleBackground.src = "./images/battle-background.jpg";
 const gameoverVaderScreen = new Image();
-gameoverVaderScreen.src = '/images/vader.png'
+gameoverVaderScreen.src = './images/vader.png'
 const winYodaScreen = new Image();
-winYodaScreen.src = '/images/baby-yoda.png'
+winYodaScreen.src = './images/baby-yoda.png'
 
 
 
@@ -33,11 +33,11 @@ function sound(src) {
   };
 }
 
-const mainSound = new sound('/sounds/main.mp3')
-const gameoverSound = new sound("/sounds/gameover.mp3");
-const lukeSound = new sound("/sounds/luke.mp3");
-const shootSound = new sound("/sounds/shoot.mp3");
-const winSound = new sound("/sounds/win.mp3");
+const mainSound = new sound('./sounds/main.mp3')
+const gameoverSound = new sound("./sounds/gameover.mp3");
+const lukeSound = new sound("./sounds/luke.mp3");
+const shootSound = new sound("./sounds/shoot.mp3");
+const winSound = new sound("./sounds/win.mp3");
 
 // Create a Player
 class Player {
@@ -52,7 +52,7 @@ class Player {
     img.addEventListener("load", () => {
       this.img = img;
     });
-    img.src = '/images/player-stop.png';
+    img.src = './images/player-stop.png';
   }
 
   draw() {
@@ -132,7 +132,7 @@ class Price {
     imgGrogu.addEventListener("load", () => {
       this.imgGrogu = imgGrogu;
     });
-    imgGrogu.src = "/images/grogu.png";
+    imgGrogu.src = "./images/grogu.png";
     imgGrogu.style.textShadow = "yellow";
   }
 
@@ -173,7 +173,7 @@ class Enemie {
     imgDroid.addEventListener("load", () => {
       this.imgDroid = imgDroid;
     });
-    imgDroid.src = "/images/droid.png";
+    imgDroid.src = "./images/droid.png";
   }
 
   draw() {
@@ -185,7 +185,7 @@ class Enemie {
     bullet.addEventListener("load", () => {
       this.bullet = bullet;
     });
-    bullet.src = "/images/red-shoot.png";
+    bullet.src = "./images/red-shoot.png";
     ctx.drawImage(
       this.bullet,
       this.bulletX,
