@@ -3,15 +3,21 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 // Set a background
-document.getElementById("start-btn").onclick = () => startGame();
+let gameoverOmar = false 
+document.getElementById("start-btn").onclick = () => {
+  if(gameoverOmar) {
+    location.reload()
+  } else {
+      startGame();
+  }
+};
+
 const battleBackground = new Image();
 battleBackground.src = "./images/battle-background.jpg";
 const gameoverVaderScreen = new Image();
-gameoverVaderScreen.src = './images/vader.png'
+gameoverVaderScreen.src = "./images/vader.png";
 const winYodaScreen = new Image();
-winYodaScreen.src = './images/baby-yoda.png'
-
-
+winYodaScreen.src = "./images/baby-yoda.png";
 
 function setBackground() {
   ctx.drawImage(battleBackground, 0, 0, canvas.width, canvas.height);
@@ -33,7 +39,7 @@ function sound(src) {
   };
 }
 
-const mainSound = new sound('./sounds/main.mp3')
+const mainSound = new sound("./sounds/main.mp3");
 const gameoverSound = new sound("./sounds/gameover.mp3");
 const lukeSound = new sound("./sounds/luke.mp3");
 const shootSound = new sound("./sounds/shoot.mp3");
@@ -42,17 +48,17 @@ const winSound = new sound("./sounds/win.mp3");
 // Create a Player
 class Player {
   constructor() {
-    this.x = 20;
-    this.y = 700;
-    this.width = 80;
-    this.height = 80;
+    this.x = 10;
+    this.y = 550;
+    this.width = 70;
+    this.height = 70;
     this.lives = 3;
     this.droidDefeated = 0;
     const img = new Image();
     img.addEventListener("load", () => {
       this.img = img;
     });
-    img.src = './images/player-stop.png';
+    img.src = "./images/player-stop.png";
   }
 
   draw() {
@@ -163,12 +169,12 @@ class Enemie {
   constructor(x) {
     this.x = x;
     this.y = 20;
-    this.width = 100;
-    this.height = 100;
+    this.width = 80;
+    this.height = 80;
     this.bulletX = this.x + 20;
     this.bulletY = this.y;
-    this.bulletWidth = 20;
-    this.bulletHeight = 60;
+    this.bulletWidth = 15;
+    this.bulletHeight = 50;
     const imgDroid = new Image();
     imgDroid.addEventListener("load", () => {
       this.imgDroid = imgDroid;
@@ -241,7 +247,6 @@ function createDroid() {
     droidsArmy[i].draw();
 
     if (droidsArmy[i].y > 40) {
-      console.log("in shoot conditional");
       shootSound.play();
       droidsArmy[i].shoot();
       droidsArmy[i].bulletY += 8; // Movement to the bullet
@@ -275,11 +280,12 @@ document.addEventListener("keydown", (e) => {
   // updateCanvas();
 });
 
+let  interval 
 // Start/Stop the game
 function startGame() {
   interval = setInterval(updateCanvas, 20); // Interval for createDroid()
   gameTimer();
-  mainSound.play()
+  mainSound.play();
 }
 
 function stopGame() {
@@ -331,12 +337,13 @@ function checkCrashWithBullet() {
 }
 
 function checkCrashWithYoda() {
-  if (luke.crashWithYoda(grogu)) { // THE PLAYER -> WIN
-    ctx.font = "100px Tahoma";
+  if (luke.crashWithYoda(grogu)) {
+    // THE PLAYER -> WIN
+    ctx.font = "60px Tahoma";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = "Greenyellow";
-    ctx.drawImage(winYodaScreen,0,0,1500,800);
+    ctx.drawImage(winYodaScreen, 0, 0, 1200, 650);
     ctx.fillText(
       "YOU WIN! This is the way",
       canvas.width / 2,
@@ -344,9 +351,10 @@ function checkCrashWithYoda() {
     );
     mainSound.stop();
     winSound.play();
+    gameoverOmar = true
     stopGame();
   }
-  if (time < 50) {
+  if (time < 40) {
     // Time survive until you can win
     grogu.draw();
   }
@@ -355,22 +363,24 @@ function checkCrashWithYoda() {
 function checkLives() {
   document.getElementById("lives").innerHTML = luke.lives;
   document.getElementById("droid-defeated").innerHTML = luke.droidDefeated;
-  if (luke.lives === 0) { // THE PLAYER -> GAME OVER
-    ctx.font = "120px Tahoma bolder";
+  if (luke.lives === 0) {
+    // THE PLAYER -> GAME OVER
+    ctx.font = "60px Tahoma bolder";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillStyle = 'rgb(201, 32, 32)'
-    ctx.drawImage(gameoverVaderScreen,0,0,1500,800);
+    ctx.fillStyle = "rgb(201, 32, 32)";
+    ctx.drawImage(gameoverVaderScreen, 0, 0, 1200, 650);
     ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     gameoverSound.play();
     mainSound.stop();
+    gameoverOmar = true
     stopGame();
   }
 }
 
 // Update the game
 function updateCanvas() {
-  ctx.clearRect(0, 0, 1500, 800);
+  ctx.clearRect(0, 0, 1200, 650);
   setBackground();
   luke.draw();
   createDroid();

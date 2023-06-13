@@ -15,11 +15,11 @@ body {
 }
 
 #title {
-    font-size: 100px;
+    font-size: 80px;
     font-weight: bolder;
     width: 70vh;
-    padding: 5px;
-    margin: 50px;
+    margin-left: 50%;
+    margin-top: 50px;
     text-align: center;
     border: gold solid 5px;
     border-radius:1cm;
@@ -59,14 +59,15 @@ body {
 }
 
 .main-intro {
-    margin: 300px 30%;
-    font-size: 35px;
+    margin: 200px 30%;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     text-align: justify;
     flex-direction: column;
 }
 #intro-title {
+    font-size: 33px;
     display: flex;
     justify-content: center;
 }
@@ -74,12 +75,12 @@ body {
 #intro-btn {
     border: black solid 5px;
     background-color: rgb(201, 32, 32);
-    padding: 15px 32px;
+    padding: 15px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 60px;
-    margin: 50px 2px;
+    font-size: 30px;
+    margin: 50px;
     cursor: pointer;
 }
 #intro-btn:hover {
