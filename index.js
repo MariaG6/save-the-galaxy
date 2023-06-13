@@ -1,4 +1,3 @@
-// Test codespace
 //Create playground with canvas
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -53,7 +52,7 @@ class Player {
     img.addEventListener("load", () => {
       this.img = img;
     });
-    img.src = "/images/player-stop.png";
+    img.src = '/images/player-stop.png';
   }
 
   draw() {
