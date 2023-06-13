@@ -26,10 +26,10 @@ body {
 }
 
 #title:hover, .main-intro:hover {
-    color:red;
+    color:rgb(201, 32, 32);
 }
 #title:hover {
-    border: red 10px double;
+    border: rgb(201, 32, 32) 10px double;
 }
 #position-title {
     width: 60px;
@@ -51,7 +51,8 @@ body {
 }
 
 #instr-box{
-    font-size: 20px;
+    width: 400px;
+    font-size: 25px;
     justify-content: center;
 }
 
@@ -65,6 +66,15 @@ body {
     height: 100px;
 }
 
+.box {
+    border: 5px white solid;
+    text-align: center;
+}
+
+.box p {
+    color: aliceblue;
+}
+
 #canvas{
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
@@ -76,7 +86,7 @@ body {
 
 #start-btn {
     border: black solid 5px;
-    background-color: red;
+    background-color: rgb(201, 32, 32);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -95,3 +105,4 @@ body {
     display: flex;
     justify-content: center;
 }
+

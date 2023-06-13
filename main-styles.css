@@ -26,10 +26,10 @@ body {
 }
 
 #title:hover, .main-intro:hover {
-    color:red;
+    color:rgb(201, 32, 32);
 }
 #title:hover {
-    border: red 10px double;
+    border: rgb(201, 32, 32) 10px double;
 }
 
 #position-title {
@@ -73,7 +73,7 @@ body {
 
 #intro-btn {
     border: black solid 5px;
-    background-color: red;
+    background-color: rgb(201, 32, 32);
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;

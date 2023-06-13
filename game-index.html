@@ -19,29 +19,24 @@
     </header>
 
     <div id="game-container">
-        <div id="instr-box">
+        <div id="instr-box" class="box">
           <h2>INSTRUCTIONS</h2>
         <ul>
-            <li>Move your player with the arroy keys  <img src="/images/arroykey.png" alt="arrowkeys" id="arrow-img"></li>
+            <li>Move your player with the arroy keys </li>
+            <li><img src="/images/arroykey.png" alt="arrowkeys" id="arrow-img"></li>
             <li>Kill the droids by touching them!</li>
             <li>If you're shot, you will lose a life.</li>
             <li>You only have 3!</li>
             <li>You win when you pick baby Yoda!!</li>
         </ul>
-         <h2>MAY THE FORCE BE WITH YOU!</h2> 
         </div>
 
         <div id="canvas-box">
-             <canvas id="canvas" width="1500" height="800">     
-             <!-- <div id="gameover">
-                <h1>GAME OVER</h1>
-                <h2>YOUR SCORE: <span id="droid-defeated">0</span></h2>
-                <button id="start-btn">START THE GAME!</button>
-            </div>    -->
-            </canvas>
+             <canvas id="canvas" width="1500" height="800"></canvas>    
          </div>
 
-        <div class="">
+        <div class="box">
+            <h2>MAY THE FORCE BE WITH YOU!</h2> 
             <h1>Time left:<p id="timer"></p></h1>
             <h1>Lives left:<p id="lives"></p></h1>
             <h1>Droids killed:<p id="droid-defeated"></p></h1>
