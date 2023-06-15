@@ -3,9 +3,9 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 // Set a background
-let gameoverOmar = false 
+let gameoverAgain = false 
 document.getElementById("start-btn").onclick = () => {
-  if(gameoverOmar) {
+  if(gameoverAgain) {
     location.reload()
   } else {
       startGame();
@@ -52,6 +52,7 @@ class Player {
     this.y = 550;
     this.width = 70;
     this.height = 70;
+    this.speed = 10
     this.lives = 3;
     this.droidDefeated = 0;
     const img = new Image();
@@ -67,19 +68,19 @@ class Player {
 
   // For movement
   moveRight() {
-    this.x += 20;
+    this.x += this.speed;
   }
 
   moveLeft() {
-    this.x -= 20;
+    this.x -= this.speed;
   }
 
   moveUp() {
-    this.y -= 20;
+    this.y -= this.speed;
   }
 
   moveDown() {
-    this.y += 20;
+    this.y += this.speed;
   }
 
   // For crashing
@@ -126,6 +127,21 @@ class Player {
 }
 
 const luke = new Player();
+
+//Update position player and see if its inside the canvas
+function updatePositionPlayer() {
+  if(luke.x < 0){
+    luke.x = 0;
+  } else if(luke.x + luke.width > canvas.width) {
+    luke.x = canvas.width - luke.width;
+  }
+
+  if(luke.y < 0) {
+    luke.y = 0;
+  } else if(luke.y + luke.height > canvas.height) {
+    luke.y = canvas.height - luke.height;
+  }
+}
 
 // Create element to collect and win
 class Price {
@@ -277,7 +293,7 @@ document.addEventListener("keydown", (e) => {
       luke.moveDown();
       break;
   }
-  // updateCanvas();
+  updatePositionPlayer()
 });
 
 let  interval 
@@ -351,7 +367,7 @@ function checkCrashWithYoda() {
     );
     mainSound.stop();
     winSound.play();
-    gameoverOmar = true
+    gameoverAgain = true
     stopGame();
   }
   if (time < 40) {
@@ -373,7 +389,7 @@ function checkLives() {
     ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     gameoverSound.play();
     mainSound.stop();
-    gameoverOmar = true
+    gameoverAgain = true
     stopGame();
   }
 }
