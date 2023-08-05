@@ -7,10 +7,17 @@ const livesElement = document.getElementById("lives");
 const defeatedElement = document.getElementById("droid-defeated");
 
 // Set a background
+<<<<<<< HEAD
 let gameoverAgain = false;
 startButton.onclick = () => {
   if (gameoverAgain) {
     location.reload();
+=======
+let gameoverAgain = false 
+document.getElementById("start-btn").onclick = () => {
+  if(gameoverAgain) {
+    location.reload()
+>>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
   } else {
     startGame();
   }
@@ -56,7 +63,11 @@ class Player {
     this.y = 550;
     this.width = 70;
     this.height = 70;
+<<<<<<< HEAD
     this.speed = 10;
+=======
+    this.speed = 10
+>>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
     this.lives = 3;
     this.droidDefeated = 0;
     const img = new Image();
@@ -127,6 +138,7 @@ const luke = new Player();
 
 //Update position player and see if its inside the canvas
 function updatePositionPlayer() {
+<<<<<<< HEAD
   if (luke.x < 0) {
     luke.x = 0;
   } else if (luke.x + luke.width > canvas.width) {
@@ -136,6 +148,17 @@ function updatePositionPlayer() {
   if (luke.y < 0) {
     luke.y = 0;
   } else if (luke.y + luke.height > canvas.height) {
+=======
+  if(luke.x < 0){
+    luke.x = 0;
+  } else if(luke.x + luke.width > canvas.width) {
+    luke.x = canvas.width - luke.width;
+  }
+
+  if(luke.y < 0) {
+    luke.y = 0;
+  } else if(luke.y + luke.height > canvas.height) {
+>>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
     luke.y = canvas.height - luke.height;
   }
 }
@@ -290,7 +313,11 @@ document.addEventListener("keydown", (e) => {
       luke.moveDown();
       break;
   }
+<<<<<<< HEAD
   updatePositionPlayer();
+=======
+  updatePositionPlayer()
+>>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
 });
 
 let interval;
@@ -364,7 +391,11 @@ function checkCrashWithYoda() {
     );
     mainSound.stop();
     winSound.play();
+<<<<<<< HEAD
     gameoverAgain = true;
+=======
+    gameoverAgain = true
+>>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
     stopGame();
   }
   if (time < 40) {
@@ -386,7 +417,11 @@ function checkLives() {
     ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     gameoverSound.play();
     mainSound.stop();
+<<<<<<< HEAD
     gameoverAgain = true;
+=======
+    gameoverAgain = true
+>>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
     stopGame();
   }
 }

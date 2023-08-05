@@ -43,5 +43,10 @@ Dodge enemy droids, shoot them down, and save Baby Yoda from Darth Vader! The ga
 ---
  CLICK TO PLAY --> https://mariag6.github.io/save-the-galaxy/
  <h2  align="center"> MAY THE CODE BE WITH YOU! </h2>
+<<<<<<< HEAD
  <img src="./images/baby-yoda.png" align="center" width='600' height='400'>
  
+=======
+ 
+ CLICK TO PLAY --> https://mariag6.github.io/save-the-galaxy/
+>>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
