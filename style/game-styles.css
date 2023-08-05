@@ -1,0 +1,153 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Roboto:wght@100&display=swap");
+
+/* Global Styles */
+* {
+  font-family: "Crimson Text", serif;
+  border: none;
+  color: #ebd71c;
+}
+
+/* Body Styles */
+body {
+  background-image: url(../images/background.jpg);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  align-items: center;
+  text-align: center;
+}
+
+/* Header Styles */
+
+.position-header {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  font-size: 50px;
+  font-weight: bolder;
+  padding: 5px;
+  text-align: center;
+  border: #ebd71c solid 5px;
+  border-radius: 1cm;
+  width: 600px;
+  margin: auto;
+}
+
+/* Hover Styles */
+.title:hover,
+.main-intro:hover {
+  color: rgb(201, 32, 32);
+}
+
+.title:hover {
+  border: rgb(201, 32, 32) 10px double;
+}
+
+/* Secondary Title Styles */
+.second-title {
+  font-family: Roboto;
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+}
+
+/* Game Container Styles */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+/* Box Styles */
+.box {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  width: 70%;
+  max-width: 800px;
+  font-size: 20px;
+  justify-content: center;
+  text-align: center;
+}
+
+.box h2 {
+  border: 5px blue solid;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.box h1{
+  font-size: 20px;
+}
+
+.box ul {
+  list-style: none;
+  padding-left: 0;
+  line-height: 40px;
+  text-align: justify;
+}
+
+.box li {
+  margin-bottom: 15px;
+}
+
+.box p {
+  font-family: Roboto;
+  color: white;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.box span {
+  color: white;
+  font-size: 20px;
+}
+
+.arrow-img {
+  width: 50px;
+  height: 30px;
+}
+
+.box,
+.second-title,
+.box h2,
+.box span, .box h1 {
+  font-family: Roboto;
+  color: white;
+  text-shadow: -1px 0 #ebd71c, 0 1px #ebd71c, 1px 0 #ebd71c, 0 -1px #ebd71c;
+}
+
+/* Canvas Styles */
+
+.canvas-box {
+  display: flex;
+  justify-content: center;
+}
+
+/* Start Button Styles */
+#start-btn {
+  font-family: Roboto;
+  border: black solid 5px;
+  background-color: rgb(201, 32, 32);
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#start-btn:hover {
+  background-color: blue;
+  color: white;
+}

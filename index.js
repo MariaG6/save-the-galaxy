@@ -1,17 +1,22 @@
-//Create playground with canvas
+// Create playground with canvas & DOM Elements
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const startButton = document.getElementById("start-btn");
+const timerElement = document.getElementById("timer");
+const livesElement = document.getElementById("lives");
+const defeatedElement = document.getElementById("droid-defeated");
 
 // Set a background
-let gameoverOmar = false 
-document.getElementById("start-btn").onclick = () => {
-  if(gameoverOmar) {
-    location.reload()
+let gameoverAgain = false;
+startButton.onclick = () => {
+  if (gameoverAgain) {
+    location.reload();
   } else {
-      startGame();
+    startGame();
   }
 };
 
+// Load images and sounds
 const battleBackground = new Image();
 battleBackground.src = "./images/battle-background.jpg";
 const gameoverVaderScreen = new Image();
@@ -23,7 +28,6 @@ function setBackground() {
   ctx.drawImage(battleBackground, 0, 0, canvas.width, canvas.height);
 }
 
-//Adding sounds
 function sound(src) {
   this.sound = document.createElement("audio");
   this.sound.src = src;
@@ -52,6 +56,7 @@ class Player {
     this.y = 550;
     this.width = 70;
     this.height = 70;
+    this.speed = 10;
     this.lives = 3;
     this.droidDefeated = 0;
     const img = new Image();
@@ -67,19 +72,19 @@ class Player {
 
   // For movement
   moveRight() {
-    this.x += 20;
+    this.x += this.speed;
   }
 
   moveLeft() {
-    this.x -= 20;
+    this.x -= this.speed;
   }
 
   moveUp() {
-    this.y -= 20;
+    this.y -= this.speed;
   }
 
   moveDown() {
-    this.y += 20;
+    this.y += this.speed;
   }
 
   // For crashing
@@ -99,15 +104,16 @@ class Player {
     return this.y + this.height;
   }
 
-  crashWithEnemie(droid) {
+  checkCollision(obstacle) {
     return !(
-      this.bottom() < droid.top() ||
-      this.top() > droid.bottom() ||
-      this.right() < droid.left() ||
-      this.left() > droid.right()
+      this.bottom() < obstacle.top() ||
+      this.top() > obstacle.bottom() ||
+      this.right() < obstacle.left() ||
+      this.left() > obstacle.right()
     );
   }
-  crashWithShoot(droid) {
+
+  checkCollisionWithShoot(droid) {
     return !(
       this.bottom() < droid.topBullet() ||
       this.top() > droid.bottomBullet() ||
@@ -115,17 +121,24 @@ class Player {
       this.left() > droid.rightBullet()
     );
   }
-  crashWithYoda(grogu) {
-    return !(
-      this.bottom() < grogu.top() ||
-      this.top() > grogu.bottom() ||
-      this.right() < grogu.left() ||
-      this.left() > grogu.right()
-    );
-  }
 }
 
 const luke = new Player();
+
+//Update position player and see if its inside the canvas
+function updatePositionPlayer() {
+  if (luke.x < 0) {
+    luke.x = 0;
+  } else if (luke.x + luke.width > canvas.width) {
+    luke.x = canvas.width - luke.width;
+  }
+
+  if (luke.y < 0) {
+    luke.y = 0;
+  } else if (luke.y + luke.height > canvas.height) {
+    luke.y = canvas.height - luke.height;
+  }
+}
 
 // Create element to collect and win
 class Price {
@@ -277,10 +290,10 @@ document.addEventListener("keydown", (e) => {
       luke.moveDown();
       break;
   }
-  // updateCanvas();
+  updatePositionPlayer();
 });
 
-let  interval 
+let interval;
 // Start/Stop the game
 function startGame() {
   interval = setInterval(updateCanvas, 20); // Interval for createDroid()
@@ -298,7 +311,7 @@ let time = 60;
 
 function gameTimer() {
   setInterval(() => {
-    let setTimer = (document.getElementById("timer").innerHTML = time);
+    let setTimer = (timerElement.innerHTML = time);
     time -= 1;
   }, 1000);
   if (time === 0) {
@@ -309,11 +322,11 @@ function gameTimer() {
 // Wining and loosing logic
 function checkCrashWithDroid() {
   const crashed = droidsArmy.some((el) => {
-    if (luke.crashWithEnemie(el)) {
+    if (luke.checkCollision(el)) {
       const index = droidsArmy.indexOf(el);
       droidsArmy.splice(index, 1);
     }
-    return luke.crashWithEnemie(el);
+    return luke.checkCollision(el);
   });
 
   if (crashed) {
@@ -324,11 +337,11 @@ function checkCrashWithDroid() {
 
 function checkCrashWithBullet() {
   const crashed = droidsArmy.some((el) => {
-    if (luke.crashWithShoot(el)) {
+    if (luke.checkCollisionWithShoot(el)) {
       const index = droidsArmy.indexOf(el);
       droidsArmy.splice(index, 1);
     }
-    return luke.crashWithShoot(el);
+    return luke.checkCollisionWithShoot(el);
   });
   console.log("in check", crashed);
   if (crashed) {
@@ -337,7 +350,7 @@ function checkCrashWithBullet() {
 }
 
 function checkCrashWithYoda() {
-  if (luke.crashWithYoda(grogu)) {
+  if (luke.checkCollision(grogu)) {
     // THE PLAYER -> WIN
     ctx.font = "60px Tahoma";
     ctx.textAlign = "center";
@@ -351,7 +364,7 @@ function checkCrashWithYoda() {
     );
     mainSound.stop();
     winSound.play();
-    gameoverOmar = true
+    gameoverAgain = true;
     stopGame();
   }
   if (time < 40) {
@@ -361,8 +374,8 @@ function checkCrashWithYoda() {
 }
 
 function checkLives() {
-  document.getElementById("lives").innerHTML = luke.lives;
-  document.getElementById("droid-defeated").innerHTML = luke.droidDefeated;
+  livesElement.innerHTML = luke.lives;
+  defeatedElement.innerHTML = luke.droidDefeated;
   if (luke.lives === 0) {
     // THE PLAYER -> GAME OVER
     ctx.font = "60px Tahoma bolder";
@@ -373,7 +386,7 @@ function checkLives() {
     ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
     gameoverSound.play();
     mainSound.stop();
-    gameoverOmar = true
+    gameoverAgain = true;
     stopGame();
   }
 }
