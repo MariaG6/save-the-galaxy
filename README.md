@@ -4,7 +4,7 @@
 
 ## Description
 
-Welcome to Save the Galaxy Game, where you play as Luke Skywalker on a mission to rescue Baby Yoda. This game is built using HTML, CSS, and JavaScript with the Canvas.
+Welcome to Save the Galaxy Game, where you play as Luke Skywalker on a mission to rescue Baby Yoda. This game is built using HTML, CSS, and JavaScript with Canvas.
 
 Dodge enemy droids, shoot them down, and save Baby Yoda from Darth Vader! The game features a fun and engaging gameplay experience, inspired by the beloved Star Wars universe.
 
