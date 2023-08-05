@@ -40,13 +40,10 @@ Dodge enemy droids, shoot them down, and save Baby Yoda from Darth Vader! The ga
 3. Kill the droids by touching them!
 4. Reach Baby Yoda to win the game and save the day!
 
----
  CLICK TO PLAY --> https://mariag6.github.io/save-the-galaxy/
  <h2  align="center"> MAY THE CODE BE WITH YOU! </h2>
-<<<<<<< HEAD
- <img src="./images/baby-yoda.png" align="center" width='600' height='400'>
+ <img  align="center" src="./images/baby-yoda.png" >
+
  
-=======
  
- CLICK TO PLAY --> https://mariag6.github.io/save-the-galaxy/
->>>>>>> e49143cf09f8ec4341bc55142d5a0ca5edbc98ab
+
